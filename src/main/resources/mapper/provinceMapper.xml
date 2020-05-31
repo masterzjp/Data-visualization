@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- resultMap最终还是要将结果映射到pojo上，type就是指定映射到哪一个pojo -->
+<mapper namespace="com.zjp.echartsdemo.dao.provinceMapper">
+    <!-- property：主键在pojo中的属性名 -->
+    <!-- column：主键在数据库中的列名 -->
+    <resultMap id="BaseResultMap" type="com.zjp.echartsdemo.entity.Province">
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="nums"  jdbcType="INTEGER" property="nums" />
+    </resultMap>
+    <select id="selectAll" parameterType="String" resultMap="BaseResultMap">
+        select name,nums from province
+    </select>
+
+</mapper>
